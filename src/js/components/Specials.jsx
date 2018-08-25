@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, CarouselInner, CarouselItem, Container } from 'mdbreact';
 import ReactDOM from 'react-dom';
 
+//this component has a libary named mdbreact
 class Specials extends React.Component {
     
     render(){
