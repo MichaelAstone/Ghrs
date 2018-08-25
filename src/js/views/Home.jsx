@@ -13,16 +13,23 @@ export default class Home extends Flux.DashView {
             {//* Navbar goes here. 
             }
             
+            
             {//* Jumbotron goes here. 
             }
             <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
-            {//* Navbar goes here. 
+            
+            {//* COMPONENT goes here. 
             }
             
-            {//* Navbar goes here. 
+            {//* Categories go here. 
             }
+            <Category />
             
-            {//* PoductCard goes here. 
+            {//* Product Cards go here. 
+            }
+            <ProductCard />
+            
+            {//* Similar items go here. 
             }
             <ProductCard />
         </div>
