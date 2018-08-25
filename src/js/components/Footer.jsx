@@ -1,11 +1,25 @@
+import FooterNavBar from '../components/FooterNavBar.jsx';
 
 import React from 'react';
 
 class Footer extends React.Component{
     render(){
          return (<div >
-           
+             <div className="footer-social-icons container ">
+
+                 <ul className="social-icons " >
+                     <li className="list-style-type:none"><a href="" className="social-icon"> <i className="fa fa-facebook"></i></a></li>
+                     <li><a href="" className="social-icon"> <i className="fa fa-twitter"></i></a></li>
+                     <li><a href="" className="social-icon"> <i className="fa fa-rss"></i></a></li>
+                     <li><a href="" className="social-icon"> <i className="fa fa-youtube"></i></a></li>
+                     <li><a href="" className="social-icon"> <i className="fa fa-linkedin"></i></a></li>
+                     <li><a href="" className="social-icon"> <i className="fa fa-google-plus"></i></a></li>
+                 </ul>
+             </div>
+
+
              <div className="container fixed-bottom">
+                 <FooterNavBar />
                  <div className="nav justify-content-center ">
                      <div className="nav-item ">
                          <a className="nav-link active textColor" href="https://www.generalhotel.com/about-us/">About Us</a>
@@ -38,7 +52,9 @@ class Footer extends React.Component{
 
   }
 }
+Footer.propType= {
 
+};
 
 
 export default Footer;

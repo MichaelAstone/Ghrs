@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import 'bootstrap';
 //include your index.scss file into the bundle
 import '../styles/index.scss';
+import "popper.js";
+import "jquery";
 
 //import your own components
 import Layout from './Layout.jsx';
