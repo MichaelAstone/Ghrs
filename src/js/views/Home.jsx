@@ -31,7 +31,7 @@ export default class Home extends Flux.DashView {
             
             {//* Similar items go here. 
             }
-            <ProductCard />
+            <SimilarItem />
         </div>
     );
   }
