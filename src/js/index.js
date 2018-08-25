@@ -4,11 +4,14 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import 'bootstrap';
 //include your index.scss file into the bundle
+import 'mdbreact/dist/css/mdb.css';
 import '../styles/index.scss';
-import "popper.js";
-import "jquery";
+
+import '../styles/login.scss';
+
 
 //import your own components
+
 import Layout from './Layout.jsx';
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-class Dropdown extends React.Component {
+class ProductCategory extends React.Component {
 constructor(){
  super();
 
@@ -53,4 +53,4 @@ showDropdownMenu(event) {
   }
 }
 
-export default Dropdown;
+export default ProductCategory;

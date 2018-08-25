@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-
+import Stars from './Stars.jsx';
  
-class SimilarBox extends React.Component {
+class SimilarItem extends React.Component {
   
   render() {
     const similarBoxStyle = {
@@ -19,10 +19,11 @@ class SimilarBox extends React.Component {
     
     return (                
         <div style={similarBoxStyle}>
+            <Stars />
             <p style={similarTextStyle}>Similar Items</p> 
         </div>
     );
   }
 }
 
-export default SimilarBox;
+export default SimilarItem;
