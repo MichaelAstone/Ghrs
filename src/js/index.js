@@ -8,7 +8,6 @@ import '../styles/index.scss';
 
 //import your own components
 import Layout from './Layout.jsx';
-import ProductCard from './components/ProductCard.jsx';
 
 
 
@@ -16,7 +15,8 @@ import ProductCard from './components/ProductCard.jsx';
 //render your react application
 
 ReactDOM.render(
-    <ProductCard />,
+
+    <Layout />,
 
     document.querySelector('#app')
 );
