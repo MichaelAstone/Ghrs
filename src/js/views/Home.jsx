@@ -3,6 +3,8 @@ import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
 import Jumbotron from '../components/Jumbotron.jsx';
 import ProductCard from '../components/ProductCard.jsx';
+import Specials from '../components/Specials.jsx';
+
 
 export default class Home extends Flux.DashView {
   render() {
