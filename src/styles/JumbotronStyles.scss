@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.jumbotron {
+ height: 80vh;
+ 
+ /* Flexbox */
+ display: flex;
+ align-items: center;
+}

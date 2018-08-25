@@ -70,6 +70,11 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-star-rating-component": "^1.4.1",
+<<<<<<< HEAD
     "reactstrap": "^6.4.0"
+=======
+    "mdbreact" : "4.7.0"
+    
+>>>>>>> 698d066facb2c335bc9631f20b42f0693352fe04
   }
 }
