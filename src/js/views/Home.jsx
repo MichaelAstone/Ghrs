@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Jumbotron from '../components/Jumbotron.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Specials from '../components/Specials.jsx';
+import AboutThisItem from '../components/AboutThisItem.jsx';
 
 
 export default class Home extends Flux.DashView {
@@ -25,6 +26,7 @@ export default class Home extends Flux.DashView {
             {//* PoductCard goes here. 
             }
             <ProductCard />
+            <AboutThisItem />
         </div>
     );
   }
