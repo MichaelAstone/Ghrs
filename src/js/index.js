@@ -9,8 +9,14 @@ import '../styles/index.scss';
 //import your own components
 import Layout from './Layout.jsx';
 
+
 //render your react application
+
+// Footer styles css
+import '../styles/footerStylesheet.scss';
+// Footer Component
+import Footer from './components/Footer.jsx';
 ReactDOM.render(
-    <Layout />,
+    <Footer />,
     document.querySelector('#app')
 );
