@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Jumbotron from '../components/Jumbotron.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Specials from '../components/Specials.jsx';
-
+import ProductCategory from '../components/ProductCategory.jsx';
 
 export default class Home extends Flux.DashView {
   render() {
@@ -21,9 +21,9 @@ export default class Home extends Flux.DashView {
             {//* COMPONENT goes here. 
             }
             
-            {//* Categories go here. 
+            {//* Product Categories go here. 
             }
-            <Category />
+            <ProductCategory />
             
             {//* Product Cards go here. 
             }
