@@ -7,6 +7,8 @@ import Specials from '../components/Specials.jsx';
 import AboutThisItem from '../components/AboutThisItem.jsx';
 import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
+import SimilarItem from '../components/SimilarItem.jsx';
+
 
 export default class Home extends Flux.DashView {
   render() {
