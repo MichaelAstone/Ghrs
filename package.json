@@ -65,24 +65,12 @@
     "react": "^16.4.2",
     "react-ace": "^5.9.0",
     "react-bootstrap": "^0.32.3",
-<<<<<<< HEAD
-    "react-dom": "^16.4.1",
-=======
     "react-dom": "^16.4.2",
->>>>>>> 8c57e76f647af0b0c724d2805eda54b4eb714d4a
     "react-polyfills": "0.0.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-star-rating-component": "^1.4.1",
-<<<<<<< HEAD
-    "mdbreact": "4.7.0"
-=======
-<<<<<<< HEAD
-    "reactstrap": "^6.4.0"
-=======
     "mdbreact" : "4.7.0"
     
->>>>>>> 698d066facb2c335bc9631f20b42f0693352fe04
->>>>>>> 8c57e76f647af0b0c724d2805eda54b4eb714d4a
   }
 }
