@@ -32,3 +32,5 @@ Jumbotron.propTypes = {
 PrimaryButton.propTypes = {
   buttonText: PropTypes.string
 };
+
+export default Jumbotron;

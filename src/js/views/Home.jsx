@@ -1,10 +1,8 @@
 import React from "react";
 import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
-//include images into your bundle
-import rigoImage from '../../img/rigo-baby.jpg';
-import ButtonComponent from '../components/ButtonComponent.jsx';
-import Jumbotron from '../components/ButtonComponent.jsx';
+import Jumbotron from '../components/Jumbotron.jsx';
+import ProductCard from '../components/ProductCard.jsx';
 
 export default class Home extends Flux.DashView {
   render() {
@@ -22,6 +20,9 @@ export default class Home extends Flux.DashView {
             {//* Navbar goes here. 
             }
             
+            {//* PoductCard goes here. 
+            }
+            <ProductCard />
         </div>
     );
   }
