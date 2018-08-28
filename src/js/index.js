@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import mdbreact from 'mdbreact';
 import 'bootstrap';
 //include your index.scss file into the bundle
 import 'mdbreact/dist/css/mdb.css';
