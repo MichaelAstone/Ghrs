@@ -1,5 +1,5 @@
 .textColor{
-  color: black;
+  color: red;
   font-size: 12px;
   padding-left: 20px;
 }
@@ -33,7 +33,7 @@ body {
 }
 a {
     text-decoration: none;
-    color: #fff;
+    color: #006238;
 }
 p > a:hover{
     color: #d9d9d9;
@@ -63,7 +63,7 @@ ul {
     margin: 0 auto;
 }
 .social-icon {
-    color: #fff;
+    color: #006238;
     list-style-type: none;
 }
 ul.social-icons {
@@ -75,7 +75,7 @@ ul.social-icons {
     height: 100px;
 }
 .social-icons a {
-    color: #fff;
+    color: #006238;
     text-decoration: none;
 }
 .fa-facebook {
@@ -85,10 +85,10 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    color: red !important;
 }
 .fa-facebook:hover {
-    background-color: #3d5b99;
+    background-color: #006238;
 }
 .fa-twitter {
     padding:10px 12px;
@@ -97,10 +97,10 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    background-color: #006238;
 }
 .fa-twitter:hover {
-    background-color: #00aced;
+    background-color: #006238;
 }
 .fa-rss {
     padding:10px 14px;
@@ -109,10 +109,10 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    background-color: #006238;
 }
 .fa-rss:hover {
-    background-color: #eb8231;
+    background-color: #006238;
 }
 .fa-youtube {
     padding:10px 14px;
@@ -121,10 +121,10 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    background-color: #006238;
 }
 .fa-youtube:hover {
-    background-color: #e64a41;
+    background-color: #006238;
 }
 .fa-linkedin {
     padding:10px 14px;
@@ -133,10 +133,10 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    background-color: #006238;
 }
 .fa-linkedin:hover {
-    background-color: #0073a4;
+    background-color: #006238;
 }
 .fa-google-plus {
     padding:10px 9px;
@@ -145,10 +145,23 @@ ul.social-icons {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
+    background-color: #006238;
 }
 .fa-google-plus:hover {
-    background-color: #e25714;
+    background-color: #006238;
+}
+.social-icons{
+  display: inline-block;
+}
+.bGcoLorBlack{
+  background-color: black;
+}
+.fa-copyright gHRScolor{
+  color: #006238;
+
+}
+body{
+  background-color: red;
 }
 
 

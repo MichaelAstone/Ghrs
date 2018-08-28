@@ -12,6 +12,7 @@ import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import Footer from '../components/Footer.jsx';
+import FooterNavBar from '../components/FooterNavBar.jsx';
 
 
 export default class Home extends Flux.DashView {
@@ -50,6 +51,8 @@ export default class Home extends Flux.DashView {
             {//* Similar items go here.
             }
             <SimilarItem />
+            <Footer/>
+            
         </div>
     );
   }

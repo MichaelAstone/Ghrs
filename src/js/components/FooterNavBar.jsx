@@ -19,20 +19,20 @@ export default class FooterNavBar extends React.Component {
   render() {
     return (
         <div>
-            <Navbar color="faded" light>
 
-                <div onClick={this.toggleNavbar} className="mx-auto justify-content-center" >Services</div>
-                <Collapse isOpen={!this.state.collapsed} navbar>
-                    <Nav navbar>
-                        <NavItem>
-                            <NavLink href="https://www.generalhotel.com/kitchen-design/">Commercial Kitchen Design</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://www.generalhotel.com/hospitality-design/">Hospitality Design</NavLink>
-                        </NavItem>
-                    </Nav>
-                </Collapse>
-            </Navbar>
+
+            <div onClick={this.toggleNavbar} className="mx-auto justify-content-center " >Services</div>
+            <Collapse isOpen={!this.state.collapsed} navbar className ="bgcoloservices">
+                <Nav navbar>
+                    <NavItem>
+                        <NavLink href="https://www.generalhotel.com/kitchen-design/">Commercial Kitchen Design</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="https://www.generalhotel.com/hospitality-design/">Hospitality Design</NavLink>
+                    </NavItem>
+                </Nav>
+            </Collapse>
+
         </div>
     );
   }
