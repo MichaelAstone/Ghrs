@@ -2,8 +2,13 @@
 
 .jumbotron {
  height: 80npmvh;
- 
+
  /* Flexbox */
  display: flex;
  align-items: center;
+}
+
+.GreenGradient {
+background: rgb(158,255,172);
+background: linear-gradient(90deg, rgba(158,255,172,1) 0%, rgba(42,251,21,1) 35%, rgba(38,143,14,1) 100%);
 }

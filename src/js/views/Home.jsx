@@ -21,20 +21,21 @@ export default class Home extends Flux.DashView {
             }
             <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
         
+            {//* ProductCard goes here.
+            }
 
-            {//* PoductCard goes here.
-            }
-            
-            
-            {//* Jumbotron goes here. 
-            }
-            <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
-            
-            {//* COMPONENT goes here. 
-            }
-            
             {//* Product Categories go here. 
             }
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
+            <ProductCategory />
             <ProductCategory />
             
             {//* Product Cards go here.
