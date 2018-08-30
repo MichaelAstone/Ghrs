@@ -31,7 +31,7 @@ showDropdownMenu(event) {
 
   render() {
     return (
-        <div  className="dropdown" style = {{background:"white",width:"320px", border: "solid 1px", margin: "30px", textAlign: "center"}} >
+        <div  className="dropdown" style = {{background:"white",width:"320px", border: "solid 1px", margin: "30px auto", textAlign: "center"}} >
             <div className="button" onClick={this.showDropdownMenu}> Category </div>
 
             { this.state.displayMenu ? (

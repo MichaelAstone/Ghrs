@@ -19,7 +19,7 @@ class SimilarItem extends React.Component {
     
     return (                
         <div style={similarBoxStyle}>
-        <Stars />
+            <Stars />
             <p style={similarTextStyle}>Similar Items</p> 
         </div>
     );
