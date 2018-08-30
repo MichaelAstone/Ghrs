@@ -19,7 +19,7 @@ import FooterNavBar from '../components/footerComps/FooterNavBar.jsx';
 export default class Home extends Flux.DashView {
   render() {
     return (
-        <div className="text-center mt-5">
+        <div className="text-center">
             {//* Navbar goes here.
 
             }
@@ -27,7 +27,18 @@ export default class Home extends Flux.DashView {
             {//* Jumbotron goes here.
             }
             <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
+        
 
+            {//* ProductCard goes here.
+            }
+            
+            
+            {//* Jumbotron goes here. 
+            }
+            <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
+            {//* Product Categories go here. 
+            }
+            <ProductCategory />
 
             {//* PoductCard goes here.
             }
