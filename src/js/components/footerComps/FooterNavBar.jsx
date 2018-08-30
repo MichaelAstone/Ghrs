@@ -1,6 +1,5 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
 export default class FooterNavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -22,13 +21,19 @@ export default class FooterNavBar extends React.Component {
 
 
             <div onClick={this.toggleNavbar} className="mx-auto justify-content-center " >Services</div>
-            <Collapse isOpen={!this.state.collapsed} navbar className ="bgcoloservices">
+            <Collapse isOpen={!this.state.collapsed} navbar className ="bgcoloservices ">
                 <Nav navbar>
                     <NavItem>
                         <NavLink href="https://www.generalhotel.com/kitchen-design/">Commercial Kitchen Design</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="https://www.generalhotel.com/hospitality-design/">Hospitality Design</NavLink>
+                        <NavLink  href="https://www.generalhotel.com/hospitality-design/">Hospitality Design</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink  href="#">School FoodSeverice Design</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink  href="#">Hotel Interior Design</NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>

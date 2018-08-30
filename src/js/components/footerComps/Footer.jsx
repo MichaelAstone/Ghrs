@@ -1,22 +1,11 @@
-import FooterNavBar from '../components/FooterNavBar.jsx';
-
+import FooterNavBar from './FooterNavBar.jsx';
+import '../../../styles/footerStylesheet.scss';
 import React from 'react';
 
 class Footer extends React.Component{
     render(){
          return (<div >
-             <div className="footer-social-icons container ">
 
-                 <div className="social-icons row justify-content-center" >
-                     <div >
-                         <a href="" className="social-icon "> <i className="fa fa-facebook fa-1.8x col-2"></i></a></div>
-                     <div><a href="" className="social-icon"> <i className="fa fa-twitter fa-1.8x col-2"></i></a></div>
-                     <div><a href="" className="social-icon"> <i className="fa fa-rss fa-1.8x col-2"></i></a></div>
-                     <div><a href="" className="social-icon"> <i className="fa fa-youtube fa-1.8x col-2"></i></a></div>
-                     <div><a href="" className="social-icon"> <i className="fa fa-linkedin fa-1.8x col-2"></i></a></div>
-                     <div><a href="" className="social-icon"> <i className="fa fa-google-plus fa-1.8x col-2"></i></a></div>
-                 </div>
-             </div>
 
 
              <div className="container navbar-fixed-bottom">
@@ -26,13 +15,29 @@ class Footer extends React.Component{
                          <a className="nav-link active textColor" href="https://www.generalhotel.com/about-us/">About Us</a>
                      </div>
                      <div className="nav-item ">
-                         <a className="nav-link textColor" href="#">Contact Us</a>
+                         <a className="nav-link textColor" href="https://www.generalhotel.com/contact-us/">Contact Us</a>
                      </div>
                      <div className="nav-item  ">
                          <a className="nav-link textColor" href="#">Track Order</a>
                      </div>
 
                  </div>
+                 <div className="footer-social-icons container ">
+
+                     <div className="social-icons row justify-content-center" >
+                         <div >
+                             <a href="" className="social-icon "> <i className="fa fa-facebook fa-1.8x col-2"></i></a></div>
+                         <div><a href="" className="social-icon"> <i className="fa fa-twitter fa-1.8x col-2"></i></a></div>
+                         <div><a href="" className="social-icon"> <i className="fa fa-rss fa-1.8x col-2"></i></a></div>
+                         <div><a href="" className="social-icon"> <i className="fa fa-youtube fa-1.8x col-2"></i></a></div>
+                         <div><a href="" className="social-icon"> <i className="fa fa-linkedin fa-1.8x col-2"></i></a></div>
+                         <div><a href="" className="social-icon"> <i className="fa fa-google-plus fa-1.8x col-2"></i></a></div>
+                     </div>
+                 </div>
+
+
+
+
                  <div>
                      <div className="container justify-content-center">
                          <div className="row justify-content-center" >

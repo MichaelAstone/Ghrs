@@ -3,6 +3,7 @@ import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
 import Jumbotron from '../components/Jumbotron.jsx';
 import ProductCard from '../components/ProductCard.jsx';
+import CustomerReviews from '../components/CustomerReviews.jsx';
 
 
 
@@ -11,8 +12,8 @@ import AboutThisItem from '../components/AboutThisItem.jsx';
 import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
-import Footer from '../components/Footer.jsx';
-import FooterNavBar from '../components/FooterNavBar.jsx';
+import Footer from '../components/footerComps/Footer.jsx';
+import FooterNavBar from '../components/footerComps/FooterNavBar.jsx';
 
 
 export default class Home extends Flux.DashView {
@@ -45,6 +46,7 @@ export default class Home extends Flux.DashView {
 
             {//* Product Cards go here.
             }
+            <CustomerReviews />
             <ProductCard />
             <AboutThisItem />
 
@@ -52,7 +54,7 @@ export default class Home extends Flux.DashView {
             }
             <SimilarItem />
             <Footer/>
-            
+
         </div>
     );
   }
