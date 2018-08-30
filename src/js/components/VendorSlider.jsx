@@ -1,7 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import '../../styles/JumbotronStyles.scss';
 import {
   Carousel,
   CarouselItem,
@@ -28,7 +26,7 @@ const items = [
   }
 ];
 
-class Jumbotron extends React.Component {
+class VendorSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = { activeIndex: 0 };
@@ -95,11 +93,11 @@ class Jumbotron extends React.Component {
   }
 }
 
-Jumbotron.propTypes = {
+VendorSlider.propTypes = {
   titleText: PropTypes.string,
   bodyText: PropTypes.string,
   buttonText: PropTypes.string,
   imageUrl: PropTypes.string
 };
 
-export default Jumbotron;
+export default VendorSlider;

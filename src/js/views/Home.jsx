@@ -12,6 +12,7 @@ import AboutThisItem from '../components/AboutThisItem.jsx';
 import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
+import VendorSlider from '../components/VendorSlider.jsx';
 import Footer from '../components/footerComps/Footer.jsx';
 import FooterNavBar from '../components/footerComps/FooterNavBar.jsx';
 
@@ -27,16 +28,16 @@ export default class Home extends Flux.DashView {
             {//* Jumbotron goes here.
             }
             <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
-        
+
 
             {//* ProductCard goes here.
             }
-            
-            
-            {//* Jumbotron goes here. 
+
+
+            {//* Jumbotron goes here.
             }
             <Jumbotron titleText="Restaurant Supplies Simplified" bodyText="Body text" buttonText="Learn More"/>
-            {//* Product Categories go here. 
+            {//* Product Categories go here.
             }
             <ProductCategory />
 
@@ -63,8 +64,10 @@ export default class Home extends Flux.DashView {
 
             {//* Similar items go here.
             }
-            <SimilarItem />
+            <VendorSlider/>
             <Footer/>
+
+
 
         </div>
     );
