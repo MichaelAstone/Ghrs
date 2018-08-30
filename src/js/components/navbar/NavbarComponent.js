@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import GeneralLogo from '../../../img/general-logo-with-tag.jpg';
 
 class NavbarComponent extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class NavbarComponent extends React.Component {
             <Router>
                 <Navbar color="indigo" dark expand="md" scrolling>
                     <NavbarBrand href="/">
-                        <strong>Navbar</strong>
+                        <img src={GeneralLogo} className="nav-logo" height="50px"/>
                     </NavbarBrand>
                     { !this.state.isWideEnough && <NavbarToggler onClick={ ()  => this.onClick() }/>}
                     <Collapse isOpen = { this.state.collapse } navbar>
