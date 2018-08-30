@@ -9,6 +9,7 @@ class NavbarComponent extends React.Component {
             collapse: false,
             isWideEnough: false
         };
+    this.onClick = this.onClick.bind(this);
     }
 
     onClick(){
@@ -23,7 +24,7 @@ class NavbarComponent extends React.Component {
                     <NavbarBrand href="/">
                         <strong>Navbar</strong>
                     </NavbarBrand>
-                    { !this.state.isWideEnough && <NavbarToggler onClick={ ()  => this.onClick() }/>}
+                    { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                             <NavItem active>
@@ -50,9 +51,9 @@ class NavbarComponent extends React.Component {
                         <NavbarNav right>
                             <NavItem>
                                 <form className="form-inline md-form mt-0">
-                                    <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
-                                </form>
-                            </NavItem>
+                                <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
+                            </form>
+                          </NavItem>
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
