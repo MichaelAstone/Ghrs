@@ -18,7 +18,7 @@ import FooterNavBar from '../components/FooterNavBar.jsx';
 export default class Home extends Flux.DashView {
   render() {
     return (
-        <div className="text-center mt-5">
+        <div className="text-center">
             {//* Navbar goes here.
 
             }
