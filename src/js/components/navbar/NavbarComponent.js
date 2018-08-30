@@ -20,9 +20,9 @@ class NavbarComponent extends React.Component {
     render() {
         return (
             <Router>
-                <Navbar color="indigo" dark expand="md" scrolling>
+                <Navbar color="green" dark expand="md" scrolling>
                     <NavbarBrand href="/">
-                        <strong>Navbar</strong>
+                        <strong>GHRS</strong>
                     </NavbarBrand>
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
@@ -38,7 +38,7 @@ class NavbarComponent extends React.Component {
                             </NavItem>
                             <NavItem>
                                 <Dropdown>
-                                    <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                                    <DropdownToggle nav caret><i className="fas fa-user-alt"></i></DropdownToggle>
                                     <DropdownMenu>
                                         <DropdownItem href="#">Action</DropdownItem>
                                         <DropdownItem href="#">Another Action</DropdownItem>
@@ -51,9 +51,9 @@ class NavbarComponent extends React.Component {
                         <NavbarNav right>
                             <NavItem>
                                 <form className="form-inline md-form mt-0">
-                                <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
-                            </form>
-                          </NavItem>
+                                    <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
+                                </form>
+                            </NavItem>
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
