@@ -98,7 +98,8 @@ class Jumbotron extends React.Component {
 Jumbotron.propTypes = {
   titleText: PropTypes.string,
   bodyText: PropTypes.string,
-  buttonText: PropTypes.string
+  buttonText: PropTypes.string,
+  imageUrl: PropTypes.string
 };
 
 export default Jumbotron;

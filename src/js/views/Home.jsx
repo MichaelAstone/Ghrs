@@ -54,7 +54,6 @@ export default class Home extends Flux.DashView {
             }
             <ProductCategory />
 
->>>>>>> 49b4b9aa1638abe3d1cd9815ef8e3658a3a84d6c
             {//* Product Cards go here.
             }
             <ProductCard />
