@@ -21,7 +21,34 @@ class CarouselSlider extends React.Component {
                 <CarouselInner>
                     <CarouselItem itemId="1">
                         <View>
-                            <img className="d-block w-100" src={this.props.ImgUrl} alt="First slide" />
+                            <img className="d-block w-100" src={this.props.ImgUrl1} alt="First slide" />
+                        </View>
+                        <CarouselCaption>
+                            <h3 className="h3-responsive">{this.props.h3titletext}</h3>
+                            <p>{this.props.ptext}</p>
+                        </CarouselCaption>
+                    </CarouselItem>
+                    <CarouselItem itemId="2">
+                        <View>
+                            <img className="d-block w-100" src={this.props.ImgUrl2} alt="First slide" />
+                        </View>
+                        <CarouselCaption>
+                            <h3 className="h3-responsive">{this.props.h3titletext}</h3>
+                            <p>{this.props.ptext}</p>
+                        </CarouselCaption>
+                    </CarouselItem>
+                    <CarouselItem itemId="3">
+                        <View>
+                            <img className="d-block w-100" src={this.props.ImgUrl3} alt="First slide" />
+                        </View>
+                        <CarouselCaption>
+                            <h3 className="h3-responsive">{this.props.h3titletext}</h3>
+                            <p>{this.props.ptext}</p>
+                        </CarouselCaption>
+                    </CarouselItem>
+                    <CarouselItem itemId="4">
+                        <View>
+                            <img className="d-block w-100" src={this.props.ImgUrl4} alt="First slide" />
                         </View>
                         <CarouselCaption>
                             <h3 className="h3-responsive">{this.props.h3titletext}</h3>
@@ -39,7 +66,10 @@ CarouselSlider.propTypes = {
   h4titletext: PropTypes.string,
   h3titletext: PropTypes.string,
   ptext: PropTypes.string,
-  ImgUrl: PropTypes.string
+  ImgUrl1: PropTypes.string,
+  ImgUrl2: PropTypes.string,
+  ImgUrl3: PropTypes.string,
+  ImgUrl4: PropTypes.string
 };
 
 export default CarouselSlider;
