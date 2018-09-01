@@ -21,7 +21,6 @@ import Layout from './Layout.jsx';
 
 
 
-
 //render your react application
 
 ReactDOM.render(
