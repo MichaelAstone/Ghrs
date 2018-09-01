@@ -10,6 +10,7 @@ class NavbarComponent extends React.Component {
             collapse: false,
             isWideEnough: false
         };
+    this.onClick = this.onClick.bind(this);
     }
 
     onClick(){
@@ -20,25 +21,21 @@ class NavbarComponent extends React.Component {
     render() {
         return (
             <Router>
-                <Navbar color="indigo" dark expand="md" scrolling>
+                <Navbar color="green" dark expand="md" scrolling>
                     <NavbarBrand href="/">
                         <img src={GeneralLogo} className="nav-logo" height="50px"/>
                     </NavbarBrand>
-                    { !this.state.isWideEnough && <NavbarToggler onClick={ ()  => this.onClick() }/>}
+                    { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                             <NavItem active>
-                                <NavLink to="#">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#">Features</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink to="#">Pricing</NavLink>
+                                <NavLink to="#"><i className="fas fa-shopping-cart"></i></NavLink>
                             </NavItem>
                             <NavItem>
                                 <Dropdown>
-                                    <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                                    <DropdownToggle nav caret><i className="fas fa-user-alt"></i></DropdownToggle>
                                     <DropdownMenu>
                                         <DropdownItem href="#">Action</DropdownItem>
                                         <DropdownItem href="#">Another Action</DropdownItem>
