@@ -12,7 +12,7 @@ import SimilarItem from '../components/SimilarItem.jsx';
 import Footer from '../components/Footer.jsx';
 import FooterNavBar from '../components/FooterNavBar.jsx';
 import CollagePng from '../../img/asset39.png';
-import SchoolServingJpg from '../../img/asset41.jpeg';
+import SchoolServingPng from '../../img/asset44.png';
 import GhrsDesignPng from '../../img/asset42.png';
 
 export default class Home extends Flux.DashView {
@@ -25,7 +25,7 @@ export default class Home extends Flux.DashView {
             <NavbarComponent/>
             <CarouselSlider 
             ImgUrl1={CollagePng}
-            ImgUrl2={SchoolServingJpg}
+            ImgUrl2={SchoolServingPng}
             ImgUrl3={GhrsDesignPng}
             carouselLength={3}
             h3title1="Labor Day Blow Out"
