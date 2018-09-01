@@ -22,6 +22,7 @@ class CarouselSlider extends React.Component {
                     <CarouselItem itemId="1">
                         <View>
                             <img className="d-block w-100" src={this.props.ImgUrl1} alt="First slide" />
+                            <Mask overlay="black-light"></Mask>
                         </View>
                         <CarouselCaption>
                             <h3 className="h3-responsive">{this.props.h3title1}</h3>
@@ -30,7 +31,8 @@ class CarouselSlider extends React.Component {
                     </CarouselItem>
                     <CarouselItem itemId="2">
                         <View>
-                            <img className="d-block w-100" src={this.props.ImgUrl2} alt="First slide" />
+                            <img className="d-block w-100" src={this.props.ImgUrl2} alt="Second slide" />
+                            <Mask overlay="black-light"></Mask>
                         </View>
                         <CarouselCaption>
                             <h3 className="h3-responsive">{this.props.h3title2}</h3>
@@ -39,7 +41,8 @@ class CarouselSlider extends React.Component {
                     </CarouselItem>
                     <CarouselItem itemId="3">
                         <View>
-                            <img className="d-block w-100" src={this.props.ImgUrl3} alt="First slide" />
+                            <img className="d-block w-100" src={this.props.ImgUrl3} alt="Third slide" />
+                            <Mask overlay="black-light"></Mask>
                         </View>
                         <CarouselCaption>
                             <h3 className="h3-responsive">{this.props.h3title3}</h3>
@@ -48,7 +51,8 @@ class CarouselSlider extends React.Component {
                     </CarouselItem>
                     <CarouselItem itemId="4">
                         <View>
-                            <img className="d-block w-100" src={this.props.ImgUrl4} alt="First slide" />
+                            <img className="d-block w-100" src={this.props.ImgUrl4} alt="Fourth slide" />
+                            <Mask overlay="black-light"></Mask>
                         </View>
                         <CarouselCaption>
                             <h3 className="h3-responsive">{this.props.h3title4}</h3>
