@@ -11,11 +11,9 @@ import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import Footer from '../components/Footer.jsx';
 import FooterNavBar from '../components/FooterNavBar.jsx';
-import RigoBaby from '../../img/rigo-baby.jpg';
-
-const mdbootstrap1 = "https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg";
-const mdbootstrap2 = "https://mdbootstrap.com/img/Photos/Slides/img%20(69).jpg";
-const mdbootstrap3 = "https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg";
+import CollagePng from '../../img/asset39.png';
+import SchoolServingJpg from '../../img/asset41.jpeg';
+import GhrsDesignPng from '../../img/asset42.png';
 
 export default class Home extends Flux.DashView {
   render() {
@@ -26,9 +24,16 @@ export default class Home extends Flux.DashView {
             }
             <NavbarComponent/>
             <CarouselSlider 
-            ImgUrl1={mdbootstrap1}
-            ImgUrl2={mdbootstrap2}
-            ImgUrl3={mdbootstrap3}
+            ImgUrl1={CollagePng}
+            ImgUrl2={SchoolServingJpg}
+            ImgUrl3={GhrsDesignPng}
+            carouselLength={3}
+            h3title1="Labor Day Blow Out"
+            h3title2= "Catering to all Restaurant Needs"
+            h3title3= "Over 13 Years of Excellence"
+            text1= "FREE SHIPPING ON ALL ORDERS OVER $50"
+            text2= "From Schools to Hotels, We Have What You Need"
+            text3= "No One Can Beat Our Prices"
             />
         
 
