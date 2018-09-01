@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, CarouselInner, CarouselItem, Container } from 'mdbreact';
 import ReactDOM from 'react-dom';
 
+
 //this component has a libary named mdbreact
 class Specials extends React.Component {
     
@@ -18,13 +19,13 @@ class Specials extends React.Component {
           className="z-depth-1">
                 <CarouselInner>
                     <CarouselItem itemId="1">
-                        <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg" alt="First slide" />
+                        <img className="d-block w-100" src="https://bit.ly/2NhPxO0" alt="First slide" />
                     </CarouselItem>
                     <CarouselItem itemId="2">
-                        <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg" alt="Second slide" />
+                        <img className="d-block w-100" src="https://bit.ly/2PcJ9rZ" alt="Second slide" />
                     </CarouselItem>
                     <CarouselItem itemId="3">
-                        <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" alt="Third slide" />
+                        <img className="d-block w-100" src="https://bit.ly/2NkQqFp" alt="Third slide" />
                     </CarouselItem>
                 </CarouselInner>
             </Carousel>

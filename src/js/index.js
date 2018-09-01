@@ -7,6 +7,8 @@ import 'bootstrap';
 import 'mdbreact/dist/css/mdb.css';
 import '../styles/index.scss';
 import '../styles/login.scss';
+import '../styles/AboutThisItem.scss';
+import '../styles/NavbarComponent.scss';
 
 //import your own components
 
