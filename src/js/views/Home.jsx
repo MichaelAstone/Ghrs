@@ -9,8 +9,7 @@ import AboutThisItem from '../components/AboutThisItem.jsx';
 import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
-import Footer from '../components/Footer.jsx';
-import FooterNavBar from '../components/FooterNavBar.jsx';
+import FooterPage from '../components/footerComps/Footer.jsx';
 import CollagePng from '../../img/asset39.png';
 import SchoolServingPng from '../../img/asset44.png';
 import GhrsDesignPng from '../../img/asset42.png';
@@ -20,10 +19,9 @@ export default class Home extends Flux.DashView {
     return (
         <div className="text-center">
             {//* Navbar goes here.
-
             }
             <NavbarComponent/>
-            <CarouselSlider 
+            <CarouselSlider
             ImgUrl1={CollagePng}
             ImgUrl2={SchoolServingPng}
             ImgUrl3={GhrsDesignPng}
@@ -35,12 +33,12 @@ export default class Home extends Flux.DashView {
             text2= "From Schools to Hotels, We Have What You Need"
             text3= "No One Can Beat Our Prices"
             />
-        
+
 
             {//* ProductCard goes here.
             }
-            
-            {//* Product Categories go here. 
+
+            {//* Product Categories go here.
             }
             <ProductCategory />
 
@@ -62,9 +60,15 @@ export default class Home extends Flux.DashView {
             {//* Similar items go here.
             }
             <SimilarItem />
+<<<<<<< HEAD
             <Specials />
             <Footer/>
             
+=======
+            <FooterPage />
+
+
+>>>>>>> 81206c91a52413234c9752e07f98da37aaa2d5f6
         </div>
     );
   }
