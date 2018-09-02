@@ -19,7 +19,9 @@ class NavbarComponent extends React.Component {
         });
     }
     render() {
+        
         return (
+
             <Router>
                 <Navbar color="green" dark expand="md" scrolling>
                     <NavbarBrand href="/">
@@ -59,3 +61,4 @@ class NavbarComponent extends React.Component {
     }
 }
 export default NavbarComponent;
+
