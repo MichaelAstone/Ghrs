@@ -60,15 +60,11 @@ export default class Home extends Flux.DashView {
             {//* Similar items go here.
             }
             <SimilarItem />
-<<<<<<< HEAD
-            <Specials />
-            <Footer/>
+            <Specials 
+            cardtext1="Card Text"/>
             
-=======
             <FooterPage />
 
-
->>>>>>> 81206c91a52413234c9752e07f98da37aaa2d5f6
         </div>
     );
   }

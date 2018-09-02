@@ -7,6 +7,7 @@ import 'bootstrap';
 //include your index.scss file into the bundle
 import 'mdbreact/dist/css/mdb.css';
 import '../styles/index.scss';
+import '../styles/SpecialsStyles.scss';
 
 import '../styles/login.scss';
 import '../styles/AboutThisItem.scss';
