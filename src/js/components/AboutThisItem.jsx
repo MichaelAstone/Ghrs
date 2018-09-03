@@ -16,7 +16,7 @@ class AboutThisItem extends Component {
                     <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Questions</a>
                 </div>
             </nav>
-            <div className="tab-content" id="nav-tabContent">
+            <div className="tab-content" id="nav-tabContent-center">
                 <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">{this.props.productDetails}</div>
                 <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">{this.props.productShipping}</div>
                 <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">{this.props.productQuestions}</div>
