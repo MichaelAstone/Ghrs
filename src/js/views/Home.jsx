@@ -55,13 +55,18 @@ export default class Home extends Flux.DashView {
             {//* Product Cards go here.
             }
             <ProductCard />
-            <AboutThisItem />
+            <AboutThisItem 
+              productDetails=""
+              productShipping= ""
+              productQuestions= ""
+            />
 
             {//* Similar items go here.
             }
             <SimilarItem />
+            <Specials />
+            
             <FooterPage />
-
 
         </div>
     );
