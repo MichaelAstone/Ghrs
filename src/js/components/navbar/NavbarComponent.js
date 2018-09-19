@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import GeneralLogo from '../../../img/general-logo-with-tag.jpg';
+import GeneralLogo from '../../../img/general-logo-with-tag.png';
 
 class NavbarComponent extends React.Component {
     constructor(props) {
