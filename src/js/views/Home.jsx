@@ -10,6 +10,7 @@ import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import FooterPage from '../components/footerComps/Footer.jsx';
+import RatingStar from '../components/RatingStar.jsx';
 import CollagePng from '../../img/asset39.png';
 import SchoolServingPng from '../../img/asset44.png';
 import GhrsDesignPng from '../../img/asset42.png';
@@ -33,7 +34,7 @@ export default class Home extends Flux.DashView {
             text2= "From Schools to Hotels, We Have What You Need"
             text3= "No One Can Beat Our Prices"
             />
-
+            <RatingStar />
 
             {//* ProductCard goes here.
             }
