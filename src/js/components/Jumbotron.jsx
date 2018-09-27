@@ -103,6 +103,6 @@ Jumbotron.propTypes = {
   bodyText: PropTypes.string,
   buttonText: PropTypes.string,
   imageUrl: PropTypes.string
-};
+}; 
 
 export default Jumbotron;
