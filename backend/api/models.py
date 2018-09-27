@@ -19,9 +19,16 @@ class Product(models.Model):
     price = models.DecimalField(max_digits= 10, decimal_places=2)
     quantity = models.PositiveIntegerField()
 
-    
+#dont need a product category bc its an intermediate model, bc its so common, djago 
+#already does it for you, automatically bc there's two foreign keys 
 class ProductCategory(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+
+class Category(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
+    slug = models.SlugField(max_length=150, unique=True ,db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
 class Img(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
@@ -70,4 +77,4 @@ class Img(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'product', 'comment')
->>>>>>> e7665b0c097ec2850f098ce05a7fd1954f3a54ef
+
