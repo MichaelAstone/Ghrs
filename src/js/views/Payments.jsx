@@ -24,11 +24,20 @@ export default class Payments extends Flux.DashView {
                         <a class="dropdown-item" href="#">Discovery</a>
                         <a class="dropdown-item" href="#">American Express</a>
                     </div>
-                    
                 </div>
-                
             </div>
         );
     }
 }
 
+
+
+{/*
+
+https://medium.com/@rcdexta/simple-credit-card-payment-form-with-stripe-js-4fd74903e23c
+
+https://stripe.com/docs/recipes/elements-react
+
+
+
+*/}
