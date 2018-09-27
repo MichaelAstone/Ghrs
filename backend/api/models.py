@@ -8,9 +8,44 @@ class User(models.Model):
     email = models.EmailField(max_length=50, default="")
     phone = models.CharField(max_length=50, default="")
     address = models.CharField(max_length=50, default="")
+
+
+class Product(models.Model):
+    img = models.CharField()
+    title = models.CharField()
+    description = models.CharField()
+    rating = models.DecimalField(max_digit = 2, decimal_places = 2)
+    manufactor = models.CharField()
+    price = models.DecimalField(max_digits= 10, decimal_places=2)
+    quantity = models.PositiveIntegerField()
     
+class Category(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+
+class ShoppingCart(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(User, on_delete = models.CASCADE, blank=True)
+    quantity = models.PositiveIntegerField()
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+    tracking = models.CharField()
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'firstname','lastname','email', 'phone', 'address')
+        
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'img','title','description', 'rating', 'manufactor', 'price', 'quantity')
+       
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'product')
+        
+class ShoppingCartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCart
+        fields = ('id', 'product','user','quantity', 'unit_price', 'tracking')
