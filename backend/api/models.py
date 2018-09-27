@@ -18,10 +18,21 @@ class Product(models.Model):
     manufactor = models.CharField()
     price = models.DecimalField(max_digits= 10, decimal_places=2)
     quantity = models.PositiveIntegerField()
-    
-class Category(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
 
+    
+class ProductCategory(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    
+class Img(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    url = models.CharField()
+    
+class Rating(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank = True)
+    rating_int = models.PositiveIntegerField()
+    comment = models.CharField(max_length =200)
+    
 class ShoppingCart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, blank=True)
@@ -49,3 +60,13 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShoppingCart
         fields = ('id', 'product','user','quantity', 'unit_price', 'tracking')
+
+class Rating(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'product', 'user', 'rating_int', 'comment')
+        
+class Img(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'product', 'comment')
