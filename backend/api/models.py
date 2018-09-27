@@ -13,10 +13,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits= 10, decimal_places=2)
     quantity = models.PositiveIntegerField()
 
-    
-class ProductCategory(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
-    
 class Img(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     url = models.CharField()
@@ -33,7 +29,6 @@ class ShoppingCart(models.Model):
     quantity = models.PositiveIntegerField()
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
     tracking = models.CharField()
-
 
 class Special(models.Model):
     expiration = models.DateTimeField(auto_now_add=True)
@@ -62,6 +57,15 @@ class Transaction(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
         
+class Search(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, blank=True)
+    searchTerm = models.CharField(max_length=20, default="")
+    
+class Profile(models.Model):
+    product = models.ForeignKey(
+        User, on_delete=models.CASCADE, blank=True)
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
