@@ -13,6 +13,18 @@ class Product(models.Model):
     price = models.DecimalField(max_digits= 10, decimal_places=2)
     quantity = models.PositiveIntegerField()
 
+#dont need a product category bc its an intermediate model, bc its so common, djago 
+#already does it for you, automatically bc there's two foreign keys 
+
+#model, extends from Model 
+class Category(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
+    slug = models.SlugField(max_length=150, unique=True ,db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    #this is how the category relates to product, products is the name of the variable
+    products = models.ManyToManyField(Product, db_table='category_product', categories='categories', blank=True)   
+    
 class Img(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     url = models.CharField()
@@ -95,3 +107,4 @@ class ImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'product', 'comment')
+
