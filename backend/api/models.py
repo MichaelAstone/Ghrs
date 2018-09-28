@@ -5,13 +5,13 @@ from django.contrib.auth.models import User
 # Create your models here. 
 
 class Product(models.Model):
-    img = models.CharField()
-    title = models.CharField()
-    description = models.CharField()
-    rating = models.DecimalField(max_digit = 2, decimal_places = 2)
-    manufactor = models.CharField()
+    img = models.CharField(max_length=150, default="")
+    title = models.CharField(max_length=50, default="")
+    description = models.CharField(max_length=50, default="")
+    productRating = models.DecimalField(max_digits = 2, decimal_places = 2)
+    manufacturer = models.CharField(max_length=50, default="")
     price = models.DecimalField(max_digits= 10, decimal_places=2)
-    quantity = models.PositiveIntegerField()
+    quantity = models.IntegerField(default=0, blank=True)
 
 #dont need a product category bc its an intermediate model, bc its so common, djago 
 #already does it for you, automatically bc there's two foreign keys 
@@ -23,24 +23,24 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     #this is how the category relates to product, products is the name of the variable
-    products = models.ManyToManyField(Product, db_table='category_product', categories='categories', blank=True)   
+    products = models.ManyToManyField(Product, related_name='categories', blank=True)   
     
-class Img(models.Model):
+class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
-    url = models.CharField()
+    url = models.CharField(max_length=150, default="")
     
 class Rating(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank = True)
-    rating_int = models.PositiveIntegerField()
-    comment = models.CharField(max_length =200)
+    rating_int = models.IntegerField(default=0, blank=True)
+    comment = models.CharField(max_length=200, default="")
     
 class ShoppingCart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, blank=True)
-    quantity = models.PositiveIntegerField()
+    quantity = models.IntegerField(default=0, blank=True)
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
-    tracking = models.CharField()
+    tracking = models.CharField(max_length=150, default="")
 
 class Special(models.Model):
     expiration = models.DateTimeField(auto_now_add=True)
@@ -72,7 +72,7 @@ class Transaction(models.Model):
 class Search(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, blank=True)
-    searchTerm = models.CharField(max_length=20, default="")
+    searchTerm = models.CharField(max_length=50, default="")
     
 class Profile(models.Model):
     product = models.ForeignKey(
