@@ -27,7 +27,7 @@ class UserView(APIView):
         else:
             return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
             
-        
+    
     def delete(self, request, user_id):
         
         user = User.objects.get(id=user_id)
@@ -55,7 +55,7 @@ class ProductView(APIView):
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_200_OK)
             else:
-                return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 
         
         def delete(self, request, product_id):
@@ -85,19 +85,19 @@ class ShoppingCartView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
         
     def delete(self, request, product_id):
         
-        Product = Product.objects.get(id=product_id)
+        product = Product.objects.get(id=product_id)
         Product.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class CategoryView(APIView):
     def get(self, request, category_id = None):
-
+ 
         #if there is an id, get that id 
         if category_id is not None:
             category = Category.objects.get(id=category_id)
@@ -118,13 +118,23 @@ class CategoryView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+    def put(self, request, category_id):
+        #getting the category, then pass the data
+        category = Category.objects.get(id=category_id)
+        serializer = CategorySerializer(category, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
         
     def delete(self, request, category_id):
         
-        Category = Category.objects.get(id=category_id)
-        Category.delete()
+        category = Category.objects.get(id=category_id)
+        category.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
         
@@ -147,7 +157,7 @@ class ImageView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
         
     def delete(self, request, image_id):
@@ -176,7 +186,7 @@ class RatingView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
         
     def delete(self, request, rating_id):
@@ -191,27 +201,36 @@ class PurchaseView(APIView):
 
         if purchase_id is not None:
             purchase = Purchase.objects.get(id=purchase_id)
-            serializer = PurchaseView(purchase, many=False)
+            serializer = PurchaseSerializer(purchase, many=False)
             return Response(serializer.data)
         else:
             purchase = Purchase.objects.all()
-            serializer = PurchaseView(purchase, many=True)
+            serializer = PurchaseSerializer(purchase, many=True)
             return Response(serializer.data)
         
     def post(self, request):
             
-        serializer = PurchaseView(data=request.data)
+        serializer = PurchaseSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
+    def put(self, request, purchase_id):
+        #getting the category, then pass the data
+        purchase = Purchase.objects.get(id=purchase_id)
+        serializer = PurchaseSerializer(purchase, data=request.data)
+        if serializer.is_valid(): 
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
     def delete(self, request, purchase_id):
         
-        Purchase = Purchase.objects.get(id=purchase_id)
-        Purchase.delete()
+        purchase = Purchase.objects.get(id=purchase_id)
+        purchase.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
         
@@ -234,7 +253,7 @@ class TransactionView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
         
     def delete(self, request, transaction_id):

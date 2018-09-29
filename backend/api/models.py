@@ -8,9 +8,9 @@ class Product(models.Model):
     img = models.CharField(max_length=150, default="")
     title = models.CharField(max_length=50, default="")
     description = models.CharField(max_length=50, default="")
-    productRating = models.DecimalField(max_digits = 2, decimal_places = 2)
+    productRating = models.IntegerField(default=0, blank=True)
     manufacturer = models.CharField(max_length=50, default="")
-    price = models.DecimalField(max_digits= 10, decimal_places=2)
+    price = models.IntegerField(default=0, blank=True)
     quantity = models.IntegerField(default=0, blank=True)
 
 #dont need a product category bc its an intermediate model, bc its so common, djago 
@@ -28,6 +28,7 @@ class Category(models.Model):
 class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     url = models.CharField(max_length=150, default="")
+    comment = models.CharField(max_length=200, default="")
     
 class Rating(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
@@ -59,7 +60,7 @@ class Coupon(models.Model):
     
 class Purchase(models.Model):
     date = models.DateTimeField(auto_now_add=True) 
-    
+
 class Transaction(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, blank=True)
@@ -92,17 +93,17 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'img','title','description', 'rating', 'manufactor', 'price', 'quantity')
+        fields = ('id', 'img','title','description', 'productRating', 'manufacturer', 'price', 'quantity')
        
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'product')
+        fields = ('id', 'name', 'products', 'slug')
         
 class ShoppingCartSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShoppingCart
-        fields = ('id', 'product','user','quantity', 'unit_price', 'tracking')
+        fields = ('id',  'product','user','quantity', 'unit_price', 'tracking')
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -112,15 +113,15 @@ class RatingSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ('id', 'product', 'comment')
+        fields = ('id', 'comment', 'product', 'url')
 
 class PurchaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Purchase
-        fields = ('id', 'title')
+        fields = ('date', 'id')
         
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ('id', 'title', 'product', 'user','quantity' )
+        fields = ('id', 'product')
 
