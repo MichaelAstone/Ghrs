@@ -3,13 +3,8 @@ import json
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-<<<<<<< HEAD
 from api.models import User, UserSerializer, Category, CategorySerializer, ShoppingCart, ShoppingCartSerializer, Product, ProductSerializer, Rating, RatingSerializer, Image, ImageSerializer, Purchase, PurchaseSerializer, Transaction, TransactionSerializer
 
-=======
-from api.models import UserSerializer
-from django.contrib.auth.models import User
->>>>>>> e8df2b966e8291daf812acf45fa15cf4b242cea3
 
 class UserView(APIView):
     def get(self, request, user_id = None):
@@ -39,18 +34,18 @@ class UserView(APIView):
         user.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
-<<<<<<< HEAD
 
 class ProductView(APIView):
         def get(self, request, product_id = None):
 
-        if product_id is not None:
-            product = Product.objects.get(id=product_id)
-            serializer = ProductSerializer(product, many=False)
+            if product_id is not None:
+                product = Product.objects.get(id=product_id)
+                serializer = ProductSerializer(product, many=False)
             return Response(serializer.data)
-        else:
-            product = Product.objects.all()
-            serializer = ProductSerializer(product, many=True)
+            
+            else:
+                product = Product.objects.all()
+                serializer = ProductSerializer(product, many=True)
             return Response(serializer.data)
         
     def post(self, request):
@@ -103,17 +98,21 @@ class ShoppingCartView(APIView):
 class CategoryView(APIView):
     def get(self, request, category_id = None):
 
+        #if there is an id, get that id 
         if category_id is not None:
             category = Category.objects.get(id=category_id)
             serializer = CategorySerializer(category, many=False)
             return Response(serializer.data)
+        
+        #if there isn't an id, get all 
         else:
             category = Category.objects.all()
             serializer = CategorySerializer(category, many=True)
             return Response(serializer.data)
         
     def post(self, request):
-            
+        
+        #transforms data into json    
         serializer = CategorySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -244,35 +243,3 @@ class TransactionView(APIView)
         Transaction.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
-=======
-        
-        
-#class ProductView(APIView):
-    #def get(self, request, user_id = None):
-
-        #if user_id is not None:
-            #user = User.objects.get(id=user_id)
-            #serializer = UserSerializer(user, many=False)
-            #return Response(serializer.data)
-        #else:
-            #user = User.objects.all()
-            #serializer = UserSerializer(user, many=True)
-            #return Response(serializer.data)
-        
-    #def post(self, request):
-            
-        #serializer = UserSerializer(data=request.data)
-        #if serializer.is_valid():
-            #serializer.save()
-            #return Response(serializer.data, status=status.HTTP_200_OK)
-        #else:
-            #return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-            
-        
-    #def delete(self, request, user_id):
-        
-        #user = User.objects.get(id=user_id)
-        #user.delete()
-        
-        #return Response(status=status.HTTP_204_NO_CONTENT)
->>>>>>> e8df2b966e8291daf812acf45fa15cf4b242cea3
