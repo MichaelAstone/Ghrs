@@ -60,7 +60,7 @@ class ProductView(APIView):
         
         def delete(self, request, product_id):
             
-            Product = Product.objects.get(id=product_id)
+            product = Product.objects.get(id=product_id)
             Product.delete()
             
             return Response(status=status.HTTP_204_NO_CONTENT)
@@ -158,11 +158,21 @@ class ImageView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self, request, image_id):
+        #getting the category, then pass the data
+        image = Image.objects.get(id=image_id)
+        serializer = ImageSerializer(image, data=request.data)
+        if serializer.is_valid(): 
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
             
         
     def delete(self, request, image_id):
         
-        Image = Image.objects.get(id=image_id)
+        image = Image.objects.get(id=image_id)
         Image.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -191,7 +201,7 @@ class RatingView(APIView):
         
     def delete(self, request, rating_id):
         
-        Rating = Rating.objects.get(id=rating_id)
+        rating = Rating.objects.get(id=rating_id)
         Rating.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -258,7 +268,7 @@ class TransactionView(APIView):
         
     def delete(self, request, transaction_id):
         
-        Transaction = Transaction.objects.get(id=transaction_id)
+        transaction = Transaction.objects.get(id=transaction_id)
         Transaction.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)

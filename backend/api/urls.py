@@ -12,6 +12,7 @@ urlpatterns = [
     path('category/<int:category_id>', views.CategoryView.as_view(), name='category'),
     path('rating/', views.RatingView.as_view(), name='all-rating'),
     path('image/', views.ImageView.as_view(), name='all-image'),
+    path('image/<int:image_id>', views.ImageView.as_view(), name='all-image'),
     path('purchase/', views.PurchaseView.as_view(), name='all-purchase'),
     path('purchase/<int:purchase_id>', views.PurchaseView.as_view(), name='all-purchase'),
     path('transaction/', views.TransactionView.as_view(), name='all-transaction'),
