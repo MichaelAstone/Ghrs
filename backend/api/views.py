@@ -41,30 +41,30 @@ class ProductView(APIView):
             if product_id is not None:
                 product = Product.objects.get(id=product_id)
                 serializer = ProductSerializer(product, many=False)
-            return Response(serializer.data)
+                return Response(serializer.data)
             
             else:
                 product = Product.objects.all()
                 serializer = ProductSerializer(product, many=True)
-            return Response(serializer.data)
+                return Response(serializer.data)
         
-    def post(self, request):
+        def post(self, request):
+                
+            serializer = ProductSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+                
+        
+        def delete(self, request, product_id):
             
-        serializer = ProductSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            Product = Product.objects.get(id=product_id)
+            Product.delete()
             
-        
-    def delete(self, request, product_id):
-        
-        Product = Product.objects.get(id=product_id)
-        Product.delete()
-        
-        return Response(status=status.HTTP_204_NO_CONTENT)
-        
+            return Response(status=status.HTTP_204_NO_CONTENT)
+            
         
 class ShoppingCartView(APIView):
     def get(self, request, product_id = None):
@@ -215,7 +215,7 @@ class PurchaseView(APIView):
         
         return Response(status=status.HTTP_204_NO_CONTENT)
         
-class TransactionView(APIView)
+class TransactionView(APIView): 
     def get(self, request, transaction_id = None):
 
         if transaction_id is not None:

@@ -57,9 +57,12 @@ class Coupon(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+class Purchase(models.Model):
+    date = models.DateTimeField(auto_now_add=True) 
+    
 class Transaction(models.Model):
     product = models.ForeignKey(
-        User, on_delete=models.CASCADE, blank=True)
+        Product, on_delete=models.CASCADE, blank=True)
     special = models.ForeignKey(
         Special, on_delete=models.CASCADE, blank=True)
     shoppingCart = models.ForeignKey(
@@ -68,6 +71,9 @@ class Transaction(models.Model):
         Coupon, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    purchase = models.ForeignKey(
+        Purchase, on_delete=models.CASCADE, blank=True)
+
         
 class Search(models.Model):
     user = models.ForeignKey(
@@ -100,11 +106,21 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
+        model = Rating
         fields = ('id', 'product', 'user', 'rating_int', 'comment')
         
-class ImgSerializer(serializers.ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
+        model = Image
         fields = ('id', 'product', 'comment')
+
+class PurchaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Purchase
+        fields = ('id', 'title')
+        
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ('id', 'title', 'product', 'user','quantity' )
 
