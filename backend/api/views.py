@@ -3,8 +3,13 @@ import json
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+<<<<<<< HEAD
 from api.models import User, UserSerializer, Category, CategorySerializer, ShoppingCart, ShoppingCartSerializer, Product, ProductSerializer, Rating, RatingSerializer, Image, ImageSerializer, Purchase, PurchaseSerializer, Transaction, TransactionSerializer
 
+=======
+from api.models import UserSerializer
+from django.contrib.auth.models import User
+>>>>>>> e8df2b966e8291daf812acf45fa15cf4b242cea3
 
 class UserView(APIView):
     def get(self, request, user_id = None):
@@ -34,6 +39,7 @@ class UserView(APIView):
         user.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
+<<<<<<< HEAD
 
 class ProductView(APIView):
         def get(self, request, product_id = None):
@@ -238,3 +244,35 @@ class TransactionView(APIView)
         Transaction.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
+=======
+        
+        
+#class ProductView(APIView):
+    #def get(self, request, user_id = None):
+
+        #if user_id is not None:
+            #user = User.objects.get(id=user_id)
+            #serializer = UserSerializer(user, many=False)
+            #return Response(serializer.data)
+        #else:
+            #user = User.objects.all()
+            #serializer = UserSerializer(user, many=True)
+            #return Response(serializer.data)
+        
+    #def post(self, request):
+            
+        #serializer = UserSerializer(data=request.data)
+        #if serializer.is_valid():
+            #serializer.save()
+            #return Response(serializer.data, status=status.HTTP_200_OK)
+        #else:
+            #return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            
+        
+    #def delete(self, request, user_id):
+        
+        #user = User.objects.get(id=user_id)
+        #user.delete()
+        
+        #return Response(status=status.HTTP_204_NO_CONTENT)
+>>>>>>> e8df2b966e8291daf812acf45fa15cf4b242cea3
