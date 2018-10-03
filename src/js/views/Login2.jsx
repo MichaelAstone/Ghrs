@@ -44,7 +44,7 @@ class LoginForm extends React.Component{
                         <label htmlFor="inputPhone">Phone</label>
                         <input type="text" className="form-control" id="inputPhone" placeholder="(000)-000-0000"></input>
                     </div>
-                    <div className="form-group col-md-1">
+                    <div className="form-group col-md-2">
                         <label htmlFor = "typePhone">Type</label>
                         <select id = "inputTypePhone" className = "form-control">
                             <option selected> Home </option>
@@ -126,7 +126,7 @@ class LoginForm extends React.Component{
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" id="gridCheck"></input>
                         <label className="form-check-label" htmlFor="gridCheck">
-                    Check me out
+                    Subscribe for weekly newsletter
                         </label>
                     </div>
                     <hr></hr>

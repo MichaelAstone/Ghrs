@@ -6,22 +6,40 @@ import CarouselSlider from '../components/CarouselSlider.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Specials from '../components/Specials.jsx';
 import AboutThisItem from '../components/AboutThisItem.jsx';
-import NavbarComponent from '../components/navbar/NavbarComponent.js';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
-import FooterPage from '../components/footerComps/Footer.jsx';
 import RatingStar from '../components/RatingStar.jsx';
 import CollagePng from '../../img/asset39.png';
 import SchoolServingPng from '../../img/asset44.png';
 import GhrsDesignPng from '../../img/asset42.png';
+import {getAllCategories, store} from "../flux.js";
 
 export default class Home extends Flux.DashView {
+  constructor(){
+        super();
+        this.state = {
+            categories: []
+        };
+    }
+  
+  componentDidMount(){
+        //This function fetches all categories from the database.
+        getAllCategories();
+        //This is getting the categories from the state & if there are categories
+        //then subscribe
+        let categories = store.getState('categories');
+        if(categories) this.setState({categories});
+        this.subscribe(store, 'categories', (categories) => {
+            this.setState({ categories });
+            console.log(categories);
+        });
+    }
+  
   render() {
     return (
         <div className="text-center">
             {//* Navbar goes here.
             }
-            <NavbarComponent/>
             <CarouselSlider
             ImgUrl1={CollagePng}
             ImgUrl2={SchoolServingPng}
@@ -41,18 +59,8 @@ export default class Home extends Flux.DashView {
 
             {//* Product Categories go here.
             }
-            <ProductCategory />
-
-            {//* PoductCard goes here.
-            }
-
-            {//* COMPONENT goes here.
-            }
-
-            {//* Product Categories go here.
-            }
-            <ProductCategory />
-
+            
+            {this.state.categories.map(c => (<li key={c.id}><Link to={'category/'+ c.slug}> {c.name}</Link></li>))}
             {//* Product Cards go here.
             }
             <ProductCard />
@@ -66,9 +74,6 @@ export default class Home extends Flux.DashView {
             }
             <SimilarItem />
             <Specials />
-            
-            <FooterPage />
-
         </div>
     );
   }

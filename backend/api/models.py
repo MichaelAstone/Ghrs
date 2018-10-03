@@ -13,8 +13,8 @@ class Product(models.Model):
     price = models.IntegerField(default=0, blank=True)
     quantity = models.IntegerField(default=0, blank=True)
 
-#dont need a product category bc its an intermediate model, bc its so common, djago 
-#already does it for you, automatically bc there's two foreign keys 
+#dont need a product category bc its an intermediate model, because it is so common, Django 
+#already does it for you, automatically because there are two foreign keys.
 
 #model, extends from Model 
 class Category(models.Model):
