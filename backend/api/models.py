@@ -29,13 +29,13 @@ class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     url = models.CharField(max_length=150, default="")
     comment = models.CharField(max_length=200, default="")
-    
+
 class Rating(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank = True)
     rating_int = models.IntegerField(default=0, blank=True)
     comment = models.CharField(max_length=200, default="")
-    
+
 class ShoppingCart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, blank=True)
@@ -88,7 +88,7 @@ class Profile(models.Model):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'firstname','lastname','email', 'phone', 'address')
+        exclude = ()
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -124,4 +124,9 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = ('id', 'product')
+
+class SpecialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Special
+        exclude = ()
 
