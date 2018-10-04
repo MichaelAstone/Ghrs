@@ -9,12 +9,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
  */
 import Home from "./views/Home.jsx";
 import Product from "./views/Product.jsx";
+import ProductCategory from "./components/ProductCategory.jsx";
+import Login2 from "./views/Login2.jsx";
+import ShoppingCart from "./views/ShoppingCart.jsx";
+import Payments from "./views/Payments.jsx";
+import NavbarComponent from './components/navbar/NavbarComponent.js';
+import FooterPage from './components/footerComps/Footer.jsx';
 
 /**
  * The idea is to declare a component that will take care off laying out the entire application
  * resolving all the possible URL
  */
-export default class Layout extends Flux.View {
+export default class Layout extends Flux.DashView {
     render() {
         return (
             <div>
@@ -23,6 +29,7 @@ export default class Layout extends Flux.View {
                 */}
                 <BrowserRouter>
                     <div>
+                        <NavbarComponent/>
                         {/*
                             Inside the <Switch> component is were we declare all of our application routes
                         */}
@@ -32,10 +39,17 @@ export default class Layout extends Flux.View {
                             <Route exact path="/" component={Home} />
                             <Route exact path="/home" component={Home} />
                             {/* you can also define variables in the url, this url will match for any product*/}
-                            <Route exact path="/product/:id" component={Product} />
+                            <Route exact path="/category/:category_slug" component={ProductCategory} />
+                            <Route exact path="/category/:category_slug/:subcategory_slug" component={Home} />
+                            <Route exact path="/product/:product_slug" component={Product} />
+                            <Route exact path="/cart" component={ShoppingCart} />
+                            <Route exact path="/checkout" component={Payments} />
+                            <Route exact path="/login" component={Login2} />
+                            <Route exact path="/about-us" component={Home} />
                             {/* for the last Rout we don't specify any path because we want it to render if no other path have matched */}
                             <Route render={() => <h1>Not found!</h1>} />
                         </Switch>
+                        <FooterPage />
                     </div>
                 </BrowserRouter>
             </div>

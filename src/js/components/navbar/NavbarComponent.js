@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import GeneralLogo from '../../../img/general-logo-with-tag.png';
 
 class NavbarComponent extends React.Component {
@@ -23,7 +23,7 @@ class NavbarComponent extends React.Component {
         return (
 
             <Router>
-                <Navbar color="green" dark expand="md" scrolling>
+                <Navbar color="green" dark expand="md">
                     <NavbarBrand href="/">
                         <img src={GeneralLogo} className="nav-logo" height="50px"/>
                     </NavbarBrand>
@@ -33,13 +33,13 @@ class NavbarComponent extends React.Component {
                             <NavItem active>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#"><i className="fas fa-shopping-cart"></i></NavLink>
+                                <NavLink to="/cart"><i className="fas fa-shopping-cart"></i></NavLink>
                             </NavItem>
                             <NavItem>
                                 <Dropdown>
                                     <DropdownToggle nav caret><i className="fas fa-user-alt"></i></DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem href="#">Action</DropdownItem>
+                                        <DropdownItem><Link to="/login">Login</Link></DropdownItem>
                                         <DropdownItem href="#">Another Action</DropdownItem>
                                         <DropdownItem href="#">Something else here</DropdownItem>
                                         <DropdownItem href="#">Something else here</DropdownItem>

@@ -14,15 +14,15 @@ export default class Payments extends Flux.DashView {
                 insert progress bubbles here
                 */}
                 <p>Product price checkout review completed</p>
-                <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown">
+                    <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select card type
-                      </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">VISA</a>
-                        <a class="dropdown-item" href="#">MasterCard</a>
-                        <a class="dropdown-item" href="#">Discovery</a>
-                        <a class="dropdown-item" href="#">American Express</a>
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a className="dropdown-item" href="#">VISA</a>
+                        <a className="dropdown-item" href="#">MasterCard</a>
+                        <a className="dropdown-item" href="#">Discovery</a>
+                        <a className="dropdown-item" href="#">American Express</a>
                     </div>
                 </div>
             </div>
