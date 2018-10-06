@@ -19,6 +19,7 @@ class Product(models.Model):
 #model, extends from Model 
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
+    description = models.CharField(max_length=250, default="")
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -98,7 +99,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'name', 'products', 'slug')
+        fields = ('id', 'name', 'products', 'slug', 'description')
         
 class ShoppingCartSerializer(serializers.ModelSerializer):
     class Meta:
