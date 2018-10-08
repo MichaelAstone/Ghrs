@@ -1,0 +1,19 @@
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
+    width: 300px;
+    background-color: #4caf50;
+    border-radius: 10px !important;
+}
+
+.list-group-item > a {
+    color: #FFF;
+}
+
+@media (max-width: 576px) {
+    .list-group-item {
+        width: 100%;
+    }
+}

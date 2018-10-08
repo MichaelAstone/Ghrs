@@ -1,7 +1,7 @@
 import React from "react";
 import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
-import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
+import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container, ListGroup, ListGroupItem } from 'mdbreact';
 import CarouselSlider from '../components/CarouselSlider.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Specials from '../components/Specials.jsx';
@@ -9,10 +9,12 @@ import AboutThisItem from '../components/AboutThisItem.jsx';
 import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import RatingStar from '../components/RatingStar.jsx';
-import CollagePng from '../../img/asset39.png';
-import SchoolServingPng from '../../img/asset44.png';
+import CategoryList from '../components/CategoryList.jsx';
+import SchoolServingPng from '../../img/asset41.jpeg';
 import GhrsDesignPng from '../../img/asset42.png';
 import {getAllCategories, store} from "../flux.js";
+import  { Animation }  from 'mdbreact';
+import '../../styles/ListGroupItem.scss';
 
 export default class Home extends Flux.DashView {
   constructor(){
@@ -41,39 +43,49 @@ export default class Home extends Flux.DashView {
             {//* Navbar goes here.
             }
             <CarouselSlider
-            ImgUrl1={CollagePng}
-            ImgUrl2={SchoolServingPng}
-            ImgUrl3={GhrsDesignPng}
-            carouselLength={3}
+            ImgUrl1={SchoolServingPng}
+            ImgUrl2={GhrsDesignPng}
+            carouselLength={2}
             h3title1="Labor Day Blow Out"
             h3title2= "Catering to all Restaurant Needs"
-            h3title3= "Over 13 Years of Excellence"
             text1= "FREE SHIPPING ON ALL ORDERS OVER $50"
             text2= "From Schools to Hotels, We Have What You Need"
-            text3= "No One Can Beat Our Prices"
             />
-            <RatingStar />
 
             {//* ProductCard goes here.
             }
 
             {//* Product Categories go here.
             }
-            
-            {this.state.categories.map(c => (<li key={c.id}><Link to={'category/'+ c.slug}> {c.name}</Link></li>))}
+            <ul>
+                <Animation type="slideInRight" delay="1.1s">
+                    {this.state.categories.map(c => (
+                        <ListGroupItem key={c.id}>
+                            <Link to={'category/'+ c.slug}> {c.name}</Link>
+                        </ListGroupItem>
+                    ))}
+                </Animation>
+            </ul>
             {//* Product Cards go here.
             }
-            <ProductCard />
-            <AboutThisItem 
-              productDetails=""
-              productShipping= ""
-              productQuestions= ""
-            />
-
+            <Animation type="slideInRight" delay="1.2s">
+                <ProductCard />
+            </Animation>
+            <Animation type="slideInRight" delay="1.3s">
+                <AboutThisItem 
+                    productDetails=""
+                    productShipping= ""
+                    productQuestions= ""
+                />
+            </Animation>
             {//* Similar items go here.
             }
-            <SimilarItem />
-            <Specials />
+            <Animation type="slideInRight" delay="1.4s">
+                <SimilarItem />
+            </Animation>
+            <Animation type="slideInRight" delay="1.5s">
+                <Specials />
+            </Animation>
         </div>
     );
   }

@@ -15,6 +15,8 @@ import ShoppingCart from "./views/ShoppingCart.jsx";
 import Payments from "./views/Payments.jsx";
 import NavbarComponent from './components/navbar/NavbarComponent.js';
 import FooterPage from './components/footerComps/Footer.jsx';
+import CategoryView from './views/CategoryView.jsx';
+import  { Animation }  from 'mdbreact';
 
 /**
  * The idea is to declare a component that will take care off laying out the entire application
@@ -29,7 +31,9 @@ export default class Layout extends Flux.DashView {
                 */}
                 <BrowserRouter>
                     <div>
-                        <NavbarComponent/>
+                        <Animation type="slideInRight" delay="1s">
+                            <NavbarComponent/>
+                        </Animation>
                         {/*
                             Inside the <Switch> component is were we declare all of our application routes
                         */}
@@ -39,7 +43,7 @@ export default class Layout extends Flux.DashView {
                             <Route exact path="/" component={Home} />
                             <Route exact path="/home" component={Home} />
                             {/* you can also define variables in the url, this url will match for any product*/}
-                            <Route exact path="/category/:category_slug" component={ProductCategory} />
+                            <Route exact path="/category/:category_slug" component={CategoryView} />
                             <Route exact path="/category/:category_slug/:subcategory_slug" component={Home} />
                             <Route exact path="/product/:product_slug" component={Product} />
                             <Route exact path="/cart" component={ShoppingCart} />
