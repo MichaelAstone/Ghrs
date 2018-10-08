@@ -1,6 +1,6 @@
 import React from 'react';
-import Validator from 'validator';
-import PropTypes from 'prop-types';
+//import Validator from 'validator';
+//import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component{

@@ -1,5 +1,5 @@
 import React from 'react';
-import Validator from 'validator';
+//import Validator from 'validator';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
