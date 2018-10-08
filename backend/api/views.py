@@ -3,8 +3,11 @@ import json
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from api.models import User, UserSerializer, Special,SpecialSerializer,Category, CategorySerializer, ShoppingCart, ShoppingCartSerializer, Product, ProductSerializer, Rating, RatingSerializer, Image, ImageSerializer, Purchase, PurchaseSerializer, Transaction, TransactionSerializer
+from django.http import QueryDict
+from api.models import User, UserSerializer, Coupon, CouponSerializer, Special, SpecialSerializer,Category, CategorySerializer, Shoppingcart, ShoppingcartSerializer, Product, ProductSerializer, Rating, RatingSerializer, Image, ImageSerializer, Purchase, PurchaseSerializer, Transaction, TransactionSerializer
+import logging
 
+logger = logging.getLogger(__name__)
 
 class UserView(APIView):
     def get(self, request, user_id = None):
@@ -85,27 +88,40 @@ class ProductView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
             
         
-class ShoppingCartView(APIView):
-    def get(self, request, user_id = None, product_id = None):
+class ShoppingcartView(APIView):
+    def get(self, request, user_id = None, product_id = None, shoppingcart_id=None):
 
         if user_id is not None:
-            product = Product.objects.get(id=product_id)
-            serializer = ProductSerializer(product, many=False)
+            shoppingcart = Shoppingcart.objects.filter(user=user_id)
+            serializer = ShoppingcartSerializer(shoppingcart, many=True)
             return Response(serializer.data)
         else:
-            product_set = Product.objects.all()
-            serializer = ProductSerializer(product_set, many=True)
+            shopping = Shoppingcart.objects.all()
+            serializer = ShoppingcartSerializer(shopping, many=True)
             return Response(serializer.data)
         
     def post(self, request):
             
-        serializer = ProductSerializer(data=request.data)
+        serializer = ShoppingcartSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
+    
+    ##NEEDS TO HAVE PROD-ID AND USER-ID AND UPDATE THE QUANTITY AND UNIT PRICE 10-6
+    def put(self, request, user_id):
+        put = json.loads(request.body) #
+        #getting the category, then pass the data                       
+        shoppingcart = Shoppingcart.objects.get(user=user_id, product=put.get("product"))
+        shoppingcart.quantity=put.get("quantity")
+        serializer = ShoppingcartSerializer(shoppingcart, data=put)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                            
         
     def delete(self, request, user_id = None, product_id = None):
         
@@ -113,7 +129,7 @@ class ShoppingCartView(APIView):
         #all for that user 
         ##if user_id is not None and product_id is None:
                                    #__ bc its a sub property
-        shoppingcart_set = ShoppingCart.objects.filter(user__id=user_id)
+        shoppingcart_set = Shoppingcart.objects.filter(user__id=user_id)
         shoppingcart_set.delete()
         
         #if there's a product id and a user id 
@@ -125,6 +141,10 @@ class ShoppingCartView(APIView):
         elif product_id is not None and user_id is None:   
             return Response(serializer.data, status=status.HTTP_200_OK)
         
+        #when there is both
+        elif product_id is not None and user_id is not None:   
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
         #no prod id but there is a user id 
         elif product_id is None and user_id is not None:   
             return Response("needs a user id", status=status.HTTP_400_BAD_REQUEST)
@@ -132,9 +152,6 @@ class ShoppingCartView(APIView):
         #if there's no user id or prod id 
         elif product_id is None and user_id is None: 
             return Response("needs a user id and prod id", status=status.HTTP_400_BAD_REQUEST)
-        
-        
-             
         
     
 class CategoryView(APIView):
@@ -306,7 +323,16 @@ class TransactionView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
+    
+    def put(self, request, transaction_id):
+        #getting the category, then pass the data
+        transaction = Transaction.objects.get(id=transaction_id)
+        serializer = TransactionSerializer(transaction, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
         
     def delete(self, request, transaction_id):
         
@@ -357,3 +383,42 @@ class SpecialView(APIView):
         special.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class CouponView(APIView):
+    def get(self, request, coupon_id = None):
+
+        if coupon_id is not None:
+            coupon = Coupon.objects.get(id=coupon_id)
+            serializer = CouponSerializer(coupon, many=False)
+            return Response(serializer.data)
+        else:
+            coupon_set = Coupon.objects.all()
+            serializer = CouponSerializer(coupon_set, many=True)
+            return Response(serializer.data)
+        
+    def post(self, request):
+            
+        serializer = CouponSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self, request, coupon_id):
+        #getting the category, then pass the data
+        coupon = Coupon.objects.get(id=coupon_id)
+        serializer = CouponSerializer(coupon, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:     
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                    
+    
+    def delete(self, request, coupon_id):
+        
+        coupon = Coupon.objects.get(id=coupon_id)
+        coupon.delete()
+        
+        return Response(status=status.HTTP_204_NO_CONTENT)        
