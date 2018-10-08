@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../../styles/login.scss';
-import Validator from 'validator';
 
-class WelcomePage extends React.Component {
+
+class Login extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -24,7 +24,7 @@ class WelcomePage extends React.Component {
     return(<div className = "container-fluid" >
         <div>
             <h1 style = {{color: 'black'}}> Welcome.</h1>
-            <h6 style = {{color: 'black'}}> Ixax. </h6>
+            <h6 style = {{color: 'black'}}> GHRS. </h6>
         </div>    
         <div className="form-group">
             <label htmlFor="inputAddress">Email address</label>
@@ -54,4 +54,4 @@ class WelcomePage extends React.Component {
 }
 }
 
-export default WelcomePage;
+export default Login;
