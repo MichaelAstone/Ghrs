@@ -12,6 +12,7 @@ import '../styles/SpecialsStyles.scss';
 import '../styles/login.scss';
 import '../styles/AboutThisItem.scss';
 import '../styles/NavbarComponent.scss';
+import '../styles/ProductCard.scss';
 
 
 //import your own components
